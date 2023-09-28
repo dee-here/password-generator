@@ -18,7 +18,7 @@ var passwordArray;
 // upper case, lower case, special character and numbers.
 const upperCaseCharacters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
 const lowerCaseCharacters = upperCaseCharacters.map(char => char.toLowerCase());
-const specialCharacters = " !\"#$%&'()*+,-./:;<=>?@[\]^_`{|}~".split(""); //split this string of special characters into an array using ""
+const specialCharacters = " !\"#$%&'()*+,-./:;<=>?@[\]^_`{|}~".split(""); //split a string of special characters into an array using ""
 const numbers = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
 
 // create a function to get length of password from user 
@@ -29,11 +29,11 @@ function getPasswordLength() {
 }
 
 
-// alert user and restart generatePassword() function , if password length isnt between 8 and 128. 
+// alert user and restart generatePassword() function, if password length is not between 8 and 128. 
 function validatePasswordLength() {
   // check if password length is not between 8 and 128
   if (!(passwordLength && passwordLength >= 8 && passwordLength <=128)) {
-    window.alert("Invalid password length. \nPassword length should be between 8 and 128 !! "); //alert the user for invalid input
+    window.alert("Invalid password length. \nPassword length should be between 8 and 128 !! "); //alert the user for invalid input of password length
     generatePassword(); // restart the process to generare password
   }
 }
@@ -51,7 +51,9 @@ function getPasswordCriteria() {
 function validatePasswordCriteria() {
   //if they are all false, its not a valid case !!
   if(!(includeUpperCase || includeLowerCase || includeNumbers || includeSpecialChars)) {
+    //alert the user for invalid passowrd criteria
     window.alert("Invalid Password criteria. \nSelect at least one of the types of characters to be included in the password.");
+    //restart the function to generate password.
     generatePassword();
   }
 }
@@ -65,7 +67,7 @@ function resetUserInputVariables() {
   includeSpecialChars = undefined;
 }
 
-// Call functions here to get user input, validating inputs, generating password and returning password.
+// this function here calls all other functions:  get user input, validating inputs, generating password and returning password.
 function generatePassword() {
   resetUserInputVariables()  //reset all user inputs
   getPasswordLength();
@@ -89,7 +91,7 @@ function randomIndexGenerator() {
 
 // generate an array with all possible characters that can be in the password based on user provided criteria
 function combineValidChars() {
-  //reset the passwordCharacterOptions 
+  //reset the passwordCharacterOptions to prevent stale data
   passwordCharacterOptions = [];
   //use spread operator to copy the characters, to be included in password into the passwordCharacterOptions array.
   if(includeUpperCase) {
@@ -113,7 +115,7 @@ function getPasswordCharacters() {
   passwordArray = [];
   //loop runs for as many times as the password length
   for (i = 0; i < passwordLength; i++) {
-    //push 1 randomn character from passwordCharacterOptions into passwordArray
+    //push 1 character from the passwordCharacterOptions array at the random index created by randomIndexGenerator()  into the passwordArray on each loop
     passwordArray.push(passwordCharacterOptions[randomIndexGenerator()]);
   }
 }
