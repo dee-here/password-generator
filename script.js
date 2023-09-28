@@ -14,11 +14,11 @@ var passwordCharacterOptions;
 var passwordArray;
 
 
-// define all the valid characters of the password.  
+// define all the valid characters of the password and store them in separate arrays.  
 // upper case, lower case, special character and numbers.
 const upperCaseCharacters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
 const lowerCaseCharacters = upperCaseCharacters.map(char => char.toLowerCase());
-const specialCharacters = " !\"#$%&'()*+,-./:;<=>?@[\]^_`{|}~".split("");
+const specialCharacters = " !\"#$%&'()*+,-./:;<=>?@[\]^_`{|}~".split(""); //split this string of special characters into an array using ""
 const numbers = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
 
 // create a function to get length of password from user 
