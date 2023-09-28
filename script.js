@@ -130,7 +130,7 @@ function randomIndexGenerator() {
   return Math.floor(Math.random() * passwordCharacterOptions.length); //returns a number that is  >= 0, and  <= length of array containing all possible characters for password.
 }
 
-// generate an array with all possible characters that can be in the password based on user provided criteria
+// generate an array with all possible characters that can be in the password based on user criteria
 function combineValidChars() {
   //reset the passwordCharacterOptions to prevent stale data
   passwordCharacterOptions = [];
@@ -153,10 +153,10 @@ function combineValidChars() {
   }
 }
 
-// pick random characters from passwordCharacterOptions to be used in password.
+// pick characters from passwordCharacterOptions to be used in password.
 // in each loop run, push one random character from the passwordCharacterOptions into the password array.
 function getPasswordCharacters() {
-  // Reset the passwordArray
+  // reset the passwordArray
   passwordArray = [];
   // loop runs for as many times as the password length
   for (i = 0; i < passwordLength; i++) {
