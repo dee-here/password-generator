@@ -111,7 +111,7 @@ function validatePasswordCriteria() {
   } else {
     //alert the user for invalid password criteria
     window.alert(
-      "Invalid Password criteria. \nSelect at least one of the types of characters to be included in the password."
+      "Invalid Password criteria. \nSelect at least one of the types of characters to be included in the password. \nTry again."
     );
     return false; 
   }
